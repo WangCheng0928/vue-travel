@@ -126,7 +126,6 @@ export default {
         width 70%
     .icon-desc
       flex-grow 1
-      overflow hidden
       .icon-desc-content
         ellipsis()
 </style>
