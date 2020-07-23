@@ -16,7 +16,6 @@ export default {
 
   .header
     position relative
-    width 100%
     height $headHeight
     line-height $headHeight
     background $bgColor
