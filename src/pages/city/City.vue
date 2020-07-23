@@ -2,8 +2,12 @@
   <div>
     <CityHeader></CityHeader>
     <CitySearch></CitySearch>
-    <CityList :cities="cities" :hotCities="hotCities"></CityList>
-    <CityAlphalist :cities="cities"></CityAlphalist>
+    <CityList
+      :cities="cities"
+      :hotCities="hotCities"
+      :letter="letter"
+    ></CityList>
+    <CityAlphalist :cities="cities" @change="handleChange"></CityAlphalist>
   </div>
 </template>
 <script>
@@ -18,7 +22,8 @@ export default {
   data: function() {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ''
     };
   },
   components: {
@@ -35,6 +40,9 @@ export default {
         this.cities = data.data.cities;
         this.hotCities = data.data.hotCities;
       }
+    },
+    handleChange: function(letter) {
+      this.letter = letter;
     }
   },
   mounted: function() {
