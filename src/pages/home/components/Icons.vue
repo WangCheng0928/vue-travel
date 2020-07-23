@@ -105,6 +105,7 @@ export default {
   flex-wrap wrap
 .icons
   display flex
+  margin-top .1rem
   flex-direction row
   flex-wrap wrap
   overflow hidden
@@ -125,7 +126,8 @@ export default {
       .icon-img-content
         width 70%
     .icon-desc
-      flex-grow 1
+      flex 1
+      min-width 0
       .icon-desc-content
         ellipsis()
 </style>
