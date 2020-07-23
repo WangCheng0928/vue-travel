@@ -6,9 +6,11 @@
     <div class="header-input">
       <span class="iconfont icon-sousuosearch82"></span>输入城市/景点/游玩主题
     </div>
-    <div class="header-right">
-      {{ city }}<span class="iconfont icon-xiala"></span>
-    </div>
+    <router-link to="/city">
+      <div class="header-right">
+        {{ city }}<span class="iconfont icon-xiala"></span>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -25,7 +27,7 @@ export default {
 @import '~@/assets/styles/variables.styl';
 .header
   display flex
-  line-height .86rem
+  line-height $headHeight
   background $bgColor
   color #fff
   .header-left
@@ -46,6 +48,7 @@ export default {
     .icon-sousuosearch82
       font-size .35rem
   .header-right
+    color #fff
     width 1.24rem
     float right
     text-align center
