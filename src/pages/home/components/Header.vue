@@ -7,13 +7,16 @@
       <span class="iconfont icon-sousuosearch82"></span>输入城市/景点/游玩主题
     </div>
     <div class="header-right">
-      城市<span class="iconfont icon-xiala"></span>
+      {{ city }}<span class="iconfont icon-xiala"></span>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    city: String
+  },
   name: 'HomeHeader'
 };
 </script>

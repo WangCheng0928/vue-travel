@@ -4,12 +4,9 @@
       <span class="title">周末去哪儿</span>
     </div>
     <ul class="weekend-list">
-      <li class="weekend-item"
-          v-for="item of recommendList"
-          :key="item.id">
+      <li class="weekend-item" v-for="item of weekendList" :key="item.id">
         <div>
-          <img class="item-img"
-               :src="item.imgUrl" />
+          <img class="item-img" :src="item.imgUrl" />
         </div>
         <div class="item-info">
           <p class="item-title">{{ item.title }}</p>
@@ -23,7 +20,10 @@
 <script>
 export default {
   name: 'HomeWeekend',
-  data () {
+  props: {
+    weekendList: Array
+  },
+  data() {
     return {
       recommendList: [
         {

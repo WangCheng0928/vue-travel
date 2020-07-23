@@ -17,65 +17,11 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data() {
-    return {
-      iconList: [
-        {
-          id: '0001',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/bd/9f7b9b2b60c1502.png',
-          desc: '踏青赏花'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/a40ee278d67000f2a29d2e20f6a029b3.png',
-          desc: '自然风光'
-        },
-        {
-          id: '0004',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-          desc: '木兰天池'
-        },
-        {
-          id: '0005',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-          desc: '文化古迹'
-        },
-        {
-          id: '0006',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/b1/528a9e80403b8c02.png',
-          desc: '武汉欢乐谷'
-        },
-        {
-          id: '0007',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/e3/67df61427c8e1302.png',
-          desc: '剧场演出'
-        },
-        {
-          id: '0008',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/20/831d62d2e1c7be02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '0009',
-          imgUrl:
-            'https://imgs.qunarzz.com/piao/fusion/1803/c0/1dbc12358f094e02.png',
-          desc: '恩施大峡谷'
-        }
-      ]
-    };
+    return {};
   },
   computed: {
     pages: function() {
@@ -126,6 +72,7 @@ export default {
       .icon-img-content
         width 70%
     .icon-desc
+      margin-top .1rem
       flex 1
       min-width 0
       .icon-desc-content

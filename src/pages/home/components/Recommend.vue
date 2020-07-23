@@ -25,46 +25,11 @@
 <script>
 export default {
   name: 'HomeRecommend',
+  props: {
+    recommendList: Array
+  },
   data() {
-    return {
-      recommendList: [
-        {
-          id: '0001',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1705/90/90f9d68b53356c56a3.img.jpg_200x200_51e3aaf6.jpg',
-          title: '爱情海水上公园',
-          desc: '好玩的水上公园，夏天清凉的好地方'
-        },
-        {
-          id: '0002',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1508/a5/9d1cfe865c3dbb14b70441daf48683b1.water.jpg_200x200_d78e27ae.jpg',
-          title: '大悟十八潭',
-          desc: '好玩的水上公园，夏天清凉的好地方'
-        },
-        {
-          id: '0003',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/201404/04/7261ce30cfc33323d5270d407d47cef3.jpg_200x200_c08b4f49.jpg',
-          title: '双峰山',
-          desc: '好玩的水上公园，夏天清凉的好地方'
-        },
-        {
-          id: '0004',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1505/88/88ef012c5ce7a9c8.water.jpg_200x200_81484032.jpg',
-          title: '汤池温泉',
-          desc: '好玩的水上公园，夏天清凉的好地方'
-        },
-        {
-          id: '0005',
-          imgUrl:
-            'https://imgs.qunarzz.com/sight/p0/1812/c7/c75074c45cf079fda3.img.jpg_200x200_0811145c.jpg',
-          title: '天屿湖温泉度假村',
-          desc: '好玩的水上公园，夏天清凉的好地方'
-        }
-      ]
-    };
+    return {};
   }
 };
 </script>
