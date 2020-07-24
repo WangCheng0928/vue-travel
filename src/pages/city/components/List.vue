@@ -5,7 +5,9 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="btn-list">
           <div class="btn-wrapper">
-            <div type="button" class="btn-item">北京</div>
+            <div type="button" class="btn-item">
+              {{ this.city }}
+            </div>
           </div>
         </div>
       </div>
@@ -13,7 +15,9 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="btn-list">
           <div class="btn-wrapper" v-for="item in hotCities" :key="item.id">
-            <div type="button" class="btn-item">{{ item.name }}</div>
+            <div type="button" class="btn-item" @click="handleClick(item.name)">
+              {{ item.name }}
+            </div>
           </div>
         </div>
       </div>
@@ -24,6 +28,7 @@
             class="item border-bottom"
             v-for="city of cityList"
             :key="city.id"
+            @click="handleClick(city.name)"
           >
             {{ city.name }}
           </div>
@@ -33,6 +38,7 @@
   </div>
 </template>
 <script>
+import { mapState, mapMutations } from 'vuex';
 import BScroll from '@better-scroll/core';
 export default {
   props: {
@@ -44,6 +50,16 @@ export default {
     return {};
   },
   name: 'CityList',
+  methods: {
+    handleClick: function(city) {
+      this.changeCity(city);
+      this.$router.push('/');
+    },
+    ...mapMutations(['changeCity'])
+  },
+  computed: {
+    ...mapState(['city'])
+  },
   mounted: function() {
     this.scroll = new BScroll(this.$refs.wrapper);
   },
@@ -69,7 +85,7 @@ export default {
     border-color #ccc
 .list
   position absolute
-  top 1.53rem
+  top 1.56rem
   left 0
   right 0
   bottom 0

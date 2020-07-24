@@ -68,19 +68,19 @@ export default {
 };
 </script>
 <style scoped lang="stylus">
-@import '~@/assets/styles/variables.styl';
-  .list
-    display flex
-    flex-direction column
-    justify-content center
-    position absolute
-    top 1.6rem
-    right 0
-    bottom 0
-    width .4rem
-    touch-action: none;
-    .item
-      color $bgColor
-      line-height .4rem
-      text-align center
+@import '~@/assets/styles/variables.styl'
+.list
+  display flex
+  flex-direction column
+  justify-content center
+  position absolute
+  top 1.6rem
+  right 0
+  bottom 0
+  width 0.4rem
+  touch-action none
+  .item
+    color $bgColor
+    line-height 0.4rem
+    text-align center
 </style>

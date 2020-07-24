@@ -10,7 +10,12 @@
     </div>
     <div class="search-content" ref="contentScroll" v-if="keyword">
       <ul>
-        <li class="content border bottom" v-for="item of list" :key="item.id">
+        <li
+          class="content border bottom"
+          v-for="item of list"
+          :key="item.id"
+          @click="handleClick(item.name)"
+        >
           {{ item.name }}
         </li>
         <li class="content border bottom" v-show="hasData">没有找到搜索内容</li>
@@ -20,6 +25,7 @@
 </template>
 <script>
 import BScroll from '@better-scroll/core';
+import { mapMutations } from 'vuex';
 export default {
   name: 'CitySearch',
   props: {
@@ -32,8 +38,17 @@ export default {
       timer: null
     };
   },
-  mounted: function() {
-    this.scroll = new BScroll(this.$refs.contentScroll);
+  methods: {
+    handleClick: function(city) {
+      this.changeCity(city);
+      this.$router.push('/');
+    },
+    ...mapMutations(['changeCity'])
+  },
+  updated: function() {
+    if (this.$refs.contentScroll) {
+      this.scroll = new BScroll(this.$refs.contentScroll);
+    }
   },
   computed: {
     hasData: function() {
@@ -87,6 +102,7 @@ export default {
   bottom 0
   z-index 1
   background #fff
+  touch-action none
   .content
     padding 0.13rem
     line-height 0.4rem
