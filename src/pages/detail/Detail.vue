@@ -1,6 +1,10 @@
 <template>
   <div>
-    <Banner></Banner>
+    <Banner
+      :sightName="sightName"
+      :bannerImg="bannerImg"
+      :gallaryImgs="gallaryImgs"
+    ></Banner>
     <DetailHeader></DetailHeader>
     <div class="content">
       <DetailList :list="list"></DetailList>
@@ -11,6 +15,7 @@
 import Banner from './components/Banner';
 import DetailHeader from './components/Header';
 import DetailList from './components/List';
+import axios from 'axios';
 export default {
   name: 'Detail',
   components: {
@@ -20,22 +25,35 @@ export default {
   },
   data: function() {
     return {
-      list: [
-        {
-          title: '成人票',
-          children: [
-            {
-              title: '成人三馆联票',
-              children: [{ title: '成人三馆联票-某一连锁店' }]
-            },
-            { title: '成人五馆联票' }
-          ]
-        },
-        { title: '学生票' },
-        { title: '儿童票' },
-        { title: '特惠票' }
-      ]
+      sightName: '',
+      bannerImg: '',
+      gallaryImgs: [],
+      list: []
     };
+  },
+  methods: {
+    getDetailInfo: function() {
+      axios
+        .get('/api/detail?id=', {
+          params: {
+            id: this.$route.params.id
+          }
+        })
+        .then(this.handleGetDataSuccess);
+    },
+    handleGetDataSuccess: function(res) {
+      res = res.data;
+      if (res.ret && res.data) {
+        const data = res.data;
+        this.sightName = data.sightName;
+        this.bannerImg = data.bannerImg;
+        this.gallaryImgs = data.gallaryImgs;
+        this.list = data.categoryList;
+      }
+    }
+  },
+  mounted: function() {
+    this.getDetailInfo();
   }
 };
 </script>

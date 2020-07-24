@@ -1,21 +1,18 @@
 <template>
   <div class="banner">
     <div class="banner-wrapper" @click="handleGallaryShow">
-      <img
-        class="banner-img"
-        src="//img1.qunarzz.com/sight/p0/1705/90/90f9d68b53356c56a3.img.jpg_600x330_18729641.jpg"
-        alt="爱情海水上乐园"
-      />
+      <img class="banner-img" :src="bannerImg" alt="爱情海水上乐园" />
       <div class="banner-info">
-        <div class="banner-title">爱情海水上公园</div>
+        <div class="banner-title">{{ sightName }}</div>
         <div class="banner-number">
-          <span class="iconfont northIcontupian banner-icon"></span>4
+          <span class="iconfont northIcontupian banner-icon"></span
+          >{{ imgsNum }}
         </div>
       </div>
     </div>
     <CommonGallery
       @showGallary="handleGallaryClose"
-      :imgs="imgs"
+      :imgs="gallaryImgs"
       v-show="showGallary"
     ></CommonGallery>
   </div>
@@ -24,8 +21,18 @@
 import CommonGallery from '@/common/gallery/Gallery';
 export default {
   name: 'Banner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   components: {
     CommonGallery
+  },
+  computed: {
+    imgsNum: function() {
+      return this.gallaryImgs.length;
+    }
   },
   data: function() {
     return {

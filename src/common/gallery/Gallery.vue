@@ -61,7 +61,6 @@ export default {
     padding-bottom 100%
     text-align center
     .gallery-img
-      margin-top 15%
       width 100%
     .swiper-pagination
       color #fff

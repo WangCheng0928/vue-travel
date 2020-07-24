@@ -37,7 +37,7 @@ export default {
       }
     }
   },
-  activated: function() {
+  mounted: function() {
     window.addEventListener('scroll', this.handleScroll);
   },
   deactivated: function() {
