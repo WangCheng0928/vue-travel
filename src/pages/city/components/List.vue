@@ -58,43 +58,43 @@ export default {
 };
 </script>
 <style scoped lang="stylus">
-@import '~@/assets/styles/variables.styl';
-  .border-topbottom
-    &:before
-      border-color #ccc
-    &:after
-      border-color #ccc
-  .border-bottom
-    &:before
-      border-color #ccc
-  .list
-    position absolute
-    top 1.53rem
-    left 0
-    right 0
-    bottom 0
+@import '~@/assets/styles/variables.styl'
+.border-topbottom
+  &:before
+    border-color #ccc
+  &:after
+    border-color #ccc
+.border-bottom
+  &:before
+    border-color #ccc
+.list
+  position absolute
+  top 1.53rem
+  left 0
+  right 0
+  bottom 0
+  overflow hidden
+  touch-action none
+  .title
+    height 0.44rem
+    line-height 0.44rem
+    background #eee
+    padding-left 0.2rem
+    color #666
+  .btn-list
     overflow hidden
-    touch-action: none;
-    .title
-      height .44rem
-      line-height .44rem
-      background #eee
-      padding-left .2rem
-      color #666
-    .btn-list
-      overflow hidden
-      padding .1rem .6rem .1rem .1rem
-      .btn-wrapper
-        float left
-        width 33.33%
-        .btn-item
-          margin .1rem
-          padding .1rem 0
-          text-align center
-          border .02rem solid #ccc
-          border-radius .06rem
-    .item-list
-      .item
-        line-height .4rem
-        padding .2rem
+    padding 0.1rem 0.6rem 0.1rem 0.1rem
+    .btn-wrapper
+      float left
+      width 33.33%
+      .btn-item
+        margin 0.1rem
+        padding 0.1rem 0
+        text-align center
+        border 0.02rem solid #ccc
+        border-radius 0.06rem
+  .item-list
+    .item
+      line-height 0.4rem
+      padding 0.2rem
 </style>
