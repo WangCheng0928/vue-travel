@@ -2,7 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/pages/home/Home';
 import City from '@/pages/city/City';
-import Detail from '@/pages/detail/Detail'
+import Detail from '@/pages/detail/Detail';
 
 Vue.use(VueRouter);
 
