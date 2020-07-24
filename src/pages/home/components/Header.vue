@@ -1,15 +1,15 @@
 <template>
   <div class="header">
     <div class="header-left">
-      <div class="iconfont icon-back"></div>
+      <div class="iconfont northIconback icon-back"></div>
     </div>
     <div class="header-input">
-      <span class="iconfont icon-sousuosearch82"></span>
+      <span class="iconfont northIconsousuosearch82"></span>
       <input class="inputContent" placeholder="输入城市/景点/游玩主题 " />
     </div>
     <router-link to="/city">
       <div class="header-right">
-        {{ this.city }}<span class="iconfont icon-xiala"></span>
+        {{ this.city }}<span class="iconfont northIconxiala"></span>
       </div>
     </router-link>
   </div>

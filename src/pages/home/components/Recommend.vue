@@ -8,7 +8,13 @@
       <span class="title">猜你喜欢</span>
     </div>
     <ul class="like-list">
-      <li class="like-item" v-for="item of recommendList" :key="item.id">
+      <router-link
+        tag="li"
+        class="like-item"
+        v-for="item of recommendList"
+        :key="item.id"
+        :to="'/detail/' + item.id"
+      >
         <div>
           <img class="item-img" :src="item.imgUrl" />
         </div>
@@ -17,7 +23,7 @@
           <p class="item-desc">{{ item.desc }}</p>
           <button class="item-btn">查看详情</button>
         </div>
-      </li>
+      </router-link>
     </ul>
     <div></div>
   </div>
