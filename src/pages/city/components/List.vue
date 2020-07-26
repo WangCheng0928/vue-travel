@@ -1,11 +1,13 @@
 <template>
-  <div class="list" ref="wrapper">
+  <div class="list"
+       ref="wrapper">
     <div>
       <div class="area">
         <div class="title border-topbottom">当前城市</div>
         <div class="btn-list">
           <div class="btn-wrapper">
-            <div type="button" class="btn-item">
+            <div type="button"
+                 class="btn-item">
               {{ this.city }}
             </div>
           </div>
@@ -14,22 +16,27 @@
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="btn-list">
-          <div class="btn-wrapper" v-for="item in hotCities" :key="item.id">
-            <div type="button" class="btn-item" @click="handleClick(item.name)">
+          <div class="btn-wrapper"
+               v-for="item in hotCities"
+               :key="item.id">
+            <div type="button"
+                 class="btn-item"
+                 @click="handleClick(item.name)">
               {{ item.name }}
             </div>
           </div>
         </div>
       </div>
-      <div class="area" v-for="(cityList, key) of cities" :key="key" :ref="key">
+      <div class="area"
+           v-for="(cityList, key) of cities"
+           :key="key"
+           :ref="key">
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list">
-          <div
-            class="item border-bottom"
-            v-for="city of cityList"
-            :key="city.id"
-            @click="handleClick(city.name)"
-          >
+          <div class="item border-bottom"
+               v-for="city of cityList"
+               :key="city.id"
+               @click="handleClick(city.name)">
             {{ city.name }}
           </div>
         </div>
@@ -46,12 +53,12 @@ export default {
     hotCities: Array,
     letter: String
   },
-  data: function() {
+  data: function () {
     return {};
   },
   name: 'CityList',
   methods: {
-    handleClick: function(city) {
+    handleClick: function (city) {
       this.changeCity(city);
       this.$router.push('/');
     },
@@ -60,11 +67,21 @@ export default {
   computed: {
     ...mapState(['city'])
   },
-  mounted: function() {
-    this.scroll = new BScroll(this.$refs.wrapper);
+  mounted: function () {
+    this.scroll = new BScroll('.list', {
+      mouseWheel: true,//开启鼠标滚轮
+      disableMouse: false,//启用鼠标拖动
+      disableTouch: false//启用手指触摸
+    })
+    let current = this
+    setTimeout(function () {
+      current.$nextTick(() => {
+        current.scroll.refresh()
+      })
+    }, 500)
   },
   watch: {
-    letter: function() {
+    letter: function () {
       if (this.letter) {
         const element = this.$refs[this.letter][0];
         this.scroll.scrollToElement(element);
@@ -84,7 +101,7 @@ export default {
   &:before
     border-color #ccc
 .list
-  position absolute
+  position fixed
   top 1.56rem
   left 0
   right 0

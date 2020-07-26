@@ -1,10 +1,13 @@
 <template>
   <div class="wrapper">
     <swiper :options="swiperOptions">
-      <swiper-slide v-for="item of swiperList" :key="item.id">
-        <img class="swiper-img" :src="item.imgUrl" />
+      <swiper-slide v-for="item of swiperList"
+                    :key="item.id">
+        <img class="swiper-img"
+             :src="item.imgUrl" />
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
+      <div class="swiper-pagination"
+           slot="pagination"></div>
     </swiper>
   </div>
 </template>
@@ -14,13 +17,15 @@ export default {
   props: {
     swiperList: Array
   },
-  data() {
+  data () {
     return {
       swiperOptions: {
         pagination: {
           el: 'swiper-pagination'
         },
-        loop: true
+        loop: true,
+        observeParents: true,
+        observer: true
       }
     };
   }

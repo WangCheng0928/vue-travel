@@ -26,7 +26,7 @@ export default {
     HomeRecommend,
     HomeWeekend
   },
-  data: function() {
+  data: function () {
     return {
       iconList: [],
       recommendList: [],
@@ -38,29 +38,27 @@ export default {
   computed: {
     ...mapState(['city'])
   },
-  mounted: function() {
+  mounted: function () {
     this.lastCity = this.city;
     this.getHomeInfo();
   },
   methods: {
-    setHomeInfo: function(res) {
+    setHomeInfo: function (res) {
       const data = res.data;
-      console.log(data);
-      if (data.ret && data.data) {
-        this.iconList = data.data.iconList;
-        this.recommendList = data.data.recommendList;
-        this.swiperList = data.data.swiperList;
-        this.weekendList = data.data.weekendList;
+      if (!data.status && data.data) {
+        this.iconList = data.data.data.iconList;
+        this.recommendList = data.data.data.recommendList;
+        this.swiperList = data.data.data.swiperList;
+        this.weekendList = data.data.data.weekendList;
       }
     },
-    getHomeInfo: function() {
+    getHomeInfo: function () {
       axios
         .get('/api/index?city=' + this.city)
         .then(res => this.setHomeInfo(res));
     }
   },
-  activated: function() {
-    console.log('actived');
+  activated: function () {
     if (this.lastCity !== this.city) {
       this.lastCity = this.city;
       this.getHomeInfo();

@@ -2,12 +2,11 @@
   <div>
     <CityHeader></CityHeader>
     <CitySearch :cities="cities"></CitySearch>
-    <CityList
-      :cities="cities"
-      :hotCities="hotCities"
-      :letter="letter"
-    ></CityList>
-    <CityAlphalist :cities="cities" @change="handleChange"></CityAlphalist>
+    <CityList :cities="cities"
+              :hotCities="hotCities"
+              :letter="letter"></CityList>
+    <CityAlphalist :cities="cities"
+                   @change="handleChange"></CityAlphalist>
   </div>
 </template>
 <script>
@@ -19,7 +18,7 @@ import CityAlphalist from './components/Alphalist';
 
 export default {
   name: 'City',
-  data: function() {
+  data: function () {
     return {
       cities: {},
       hotCities: [],
@@ -33,19 +32,18 @@ export default {
     CityAlphalist
   },
   methods: {
-    handleGetCityInfo: function(res) {
-      console.log(res.data);
+    handleGetCityInfo: function (res) {
       const data = res.data;
-      if (data.ret && data.data) {
-        this.cities = data.data.cities;
-        this.hotCities = data.data.hotCities;
+      if (!data.status && data.data) {
+        this.cities = data.data.data.cities;
+        this.hotCities = data.data.data.hotCities;
       }
     },
-    handleChange: function(letter) {
+    handleChange: function (letter) {
       this.letter = letter;
     }
   },
-  mounted: function() {
+  mounted: function () {
     axios.get('/api/city').then(res => this.handleGetCityInfo(res));
   }
 };

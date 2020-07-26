@@ -1,10 +1,8 @@
 <template>
   <div>
-    <Banner
-      :sightName="sightName"
-      :bannerImg="bannerImg"
-      :gallaryImgs="gallaryImgs"
-    ></Banner>
+    <Banner :sightName="sightName"
+            :bannerImg="bannerImg"
+            :gallaryImgs="gallaryImgs"></Banner>
     <DetailHeader></DetailHeader>
     <div class="content">
       <DetailList :list="list"></DetailList>
@@ -23,7 +21,7 @@ export default {
     DetailHeader,
     DetailList
   },
-  data: function() {
+  data: function () {
     return {
       sightName: '',
       bannerImg: '',
@@ -32,7 +30,7 @@ export default {
     };
   },
   methods: {
-    getDetailInfo: function() {
+    getDetailInfo: function () {
       axios
         .get('/api/detail?id=', {
           params: {
@@ -41,18 +39,18 @@ export default {
         })
         .then(this.handleGetDataSuccess);
     },
-    handleGetDataSuccess: function(res) {
+    handleGetDataSuccess: function (res) {
       res = res.data;
-      if (res.ret && res.data) {
+      if (!res.status && res.data) {
         const data = res.data;
-        this.sightName = data.sightName;
-        this.bannerImg = data.bannerImg;
-        this.gallaryImgs = data.gallaryImgs;
-        this.list = data.categoryList;
+        this.sightName = data.data.sightName;
+        this.bannerImg = data.data.bannerImg;
+        this.gallaryImgs = data.data.gallaryImgs;
+        this.list = data.data.categoryList;
       }
     }
   },
-  mounted: function() {
+  mounted: function () {
     this.getDetailInfo();
   }
 };
