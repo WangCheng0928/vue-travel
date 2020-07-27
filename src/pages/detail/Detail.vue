@@ -7,19 +7,22 @@
     <div class="content">
       <DetailList :list="list"></DetailList>
     </div>
+    <DetailComments></DetailComments>
   </div>
 </template>
 <script>
 import Banner from './components/Banner';
 import DetailHeader from './components/Header';
 import DetailList from './components/List';
+import DetailComments from './components/Comments';
 import axios from 'axios';
 export default {
   name: 'Detail',
   components: {
     Banner,
     DetailHeader,
-    DetailList
+    DetailList,
+    DetailComments
   },
   data: function () {
     return {
@@ -55,7 +58,4 @@ export default {
   }
 };
 </script>
-<style scoped lang="stylus">
-.content
-  height 50rem
-</style>
+<style scoped lang="stylus"></style>
